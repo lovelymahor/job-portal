@@ -2,6 +2,10 @@ from flask import Flask
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from dotenv import load_dotenv
+import pymysql
+
+# MySQL compatibility patch (IMPORTANT)
+pymysql.install_as_MySQLdb()
 
 from config import Config
 from utils.db import mysql
@@ -47,16 +51,14 @@ def home():
     return "Job Portal Backend Running Successfully 🚀"
 
 # =========================
-# Debug routes (optional)
-# =========================
-print(app.url_map)
-
-# =========================
-# Run Server (LOCAL ONLY)
+# Run Server (Render compatible)
 # =========================
 if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))  # Render uses PORT env var
+
     app.run(
         host="0.0.0.0",
-        port=5000,
-        debug=True
+        port=port,
+        debug=False
     )
