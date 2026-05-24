@@ -23,7 +23,7 @@ The project focuses on clean UI, secure backend APIs, database integration, and 
 
 # Project Architecture
 
-![Job Portal Architecture](./assets/job-portal-architecture.png)
+![Job Portal Architecture](./assets/architecture.png)
 
 The diagram below explains the complete workflow of the project including frontend, backend, database communication, deployment, and user interaction flow.
 
