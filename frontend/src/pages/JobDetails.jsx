@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
+import API from "../services/api";
 
 function JobDetails() {
   const { id } = useParams();
@@ -10,8 +10,8 @@ function JobDetails() {
 
   const fetchJob = async () => {
     try {
-      const res = await axios.get(
-        `http://127.0.0.1:5000/api/jobs/${id}`
+      const res = await API.get(
+        `/api/jobs/${id}`
       );
 
       setJob(res.data);

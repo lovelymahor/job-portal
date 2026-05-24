@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
+import API from "../services/api";
 
 import {
   useParams,
@@ -32,8 +32,8 @@ function EditJob() {
 
     try {
 
-      const response = await axios.get(
-        `http://127.0.0.1:5000/api/jobs/job/${jobId}`
+      const response = await API.get(
+        `/api/jobs/job/${jobId}`
       );
 
       setFormData(response.data);
@@ -75,8 +75,8 @@ function EditJob() {
 
     try {
 
-      await axios.put(
-        `http://127.0.0.1:5000/api/jobs/update-job/${jobId}`,
+      await API.put(
+        `/api/jobs/update-job/${jobId}`,
         formData,
         {
           headers: {

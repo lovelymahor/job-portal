@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
+import API from "../services/api";
 
 function Profile() {
 
@@ -17,8 +17,8 @@ function Profile() {
 
     try {
 
-      const response = await axios.get(
-        "http://127.0.0.1:5000/api/applications/my-applications",
+      const response = await API.get(
+        "/api/applications/my-applications",
         {
           headers: {
             Authorization: `Bearer ${token}`

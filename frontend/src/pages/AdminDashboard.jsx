@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 
 function AdminDashboard() {
 
@@ -17,8 +17,8 @@ function AdminDashboard() {
 
     try {
 
-      const response = await axios.get(
-        "http://127.0.0.1:5000/api/applications/all-applications",
+      const response = await API.get(
+        "/api/applications/all-applications",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -43,8 +43,8 @@ function AdminDashboard() {
 
     try {
 
-      await axios.put(
-        `http://127.0.0.1:5000/api/applications/update-status/${applicationId}`,
+      await API.put(
+        `/api/applications/update-status/${applicationId}`,
         {
           status
         },

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import API from "../services/api";
 
 function JobApplicants() {
   const { jobId } = useParams();
@@ -18,14 +19,10 @@ function JobApplicants() {
     try {
       setLoading(true);
 
-      const response = await axios.get(
-        `http://127.0.0.1:5000/api/applications/job-applicants/${jobId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+      const response = await API.get(
+        `/api/applications/job-applicants/${jobId}`
       );
+
 
       setData(response.data);
     } catch (error) {
@@ -47,8 +44,8 @@ function JobApplicants() {
     try {
       setUpdatingId(applicationId);
 
-      await axios.put(
-        `http://127.0.0.1:5000/api/applications/update-status/${applicationId}`,
+      await API.put(
+        `/api/applications/update-status/${applicationId}`,
         { status },
         {
           headers: {

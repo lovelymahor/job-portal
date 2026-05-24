@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -13,8 +13,8 @@ function Home() {
 
     try {
 
-      const response = await axios.get(
-        "http://127.0.0.1:5000/api/jobs/all-jobs"
+      const response = await API.get(
+        "/api/jobs/all-jobs"
       );
 
       // Show latest 6 jobs

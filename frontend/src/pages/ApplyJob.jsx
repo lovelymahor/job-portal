@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 import { useParams } from "react-router-dom";
 
 function ApplyJob() {
@@ -27,8 +27,8 @@ function ApplyJob() {
 
     try {
 
-      const response = await axios.post(
-        "http://127.0.0.1:5000/api/applications/apply-job",
+      const response = await API.post(
+        "/api/applications/apply-job",
         formData,
         {
           headers: {

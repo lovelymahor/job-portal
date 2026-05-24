@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 import { Link, useLocation } from "react-router-dom";
 
 function Jobs() {
@@ -142,7 +142,7 @@ function Jobs() {
             <div className="mt-6 flex justify-between items-center">
 
               <Link
-                to={`/apply/${job.id}`}
+                to={`/job/${job.id}`}
                 className="
                   bg-black
                   text-white

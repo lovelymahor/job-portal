@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 import { Link } from "react-router-dom";
 
 function MyJobs() {
@@ -15,8 +15,8 @@ function MyJobs() {
 
     try {
 
-      const response = await axios.get(
-        "http://127.0.0.1:5000/api/jobs/my-jobs",
+      const response = await API.get(
+        "/api/jobs/my-jobs",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -47,8 +47,8 @@ function MyJobs() {
 
     try {
 
-      await axios.delete(
-        `http://127.0.0.1:5000/api/jobs/delete-job/${jobId}`,
+      await API.delete(
+        `/api/jobs/delete-job/${jobId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`

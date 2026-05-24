@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../services/api";
 
 function CreateJob() {
 
@@ -16,8 +16,8 @@ function CreateJob() {
 
     try {
 
-      const response = await axios.post(
-        "http://127.0.0.1:5000/api/jobs/create-job",
+      const response = await API.post(
+        "/api/jobs/create-job",
         {
           title,
           company,
